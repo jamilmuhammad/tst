@@ -2,8 +2,8 @@ from pydantic_settings import BaseSettings
 from functools import lru_cache
 
 class Settings(BaseSettings):
-    database_url: str
-    redis_url: str
+    DATABASE_URL: str
+    REDIS_URL: str
 
     class Config:
         env_file = ".env"
