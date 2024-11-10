@@ -4,7 +4,7 @@ services:
   api:
     build: 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./app/Dockerfile
     ports:
       - "8000:8000"
     environment:
@@ -14,7 +14,7 @@ services:
       - db
       - cache
     volumes:
-      - ./app:/app
+      - ./app:/code/app
     networks:
       - library_network
 
@@ -27,7 +27,7 @@ services:
       - POSTGRES_PASSWORD=pass
       - POSTGRES_DB=library_db
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data/
     networks:
       - library_network
     healthcheck:
